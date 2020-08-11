@@ -1,0 +1,24 @@
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li>
+                <font color='red'><%= error %></font>
+            </li><br>
+        <% end %>
+    </ul>
+<% end %>
+
+<h1>Edit Duck Profile</h1>
+
+<%= form_for @duck do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br>
+    <%= f.label 'Choose Who Gets This Ducky' %>
+    <%= f.collection_select :student_id, Student.all, :id, :name %>
+    <%= f.submit %>
+<% end %>
+
+
+<br><br><%= link_to 'Cancel', duck_path(@duck.id) %>

@@ -1,0 +1,21 @@
+<h1><%= @student.name %></h1>
+<h3>Currently in Mod <%= @student.mod %></h3>
+
+<h3>Ducks:</h3><br>
+<ul>
+    <% if @student.ducks.empty? %>
+        <p>No ducks yet! <%= link_to 'Add a few', ducks_path %></p>
+    <% else %>
+        <% @student.ducks.each do |duck| %>
+            <li>
+                <%= duck.name %>: <%= duck.description %>
+            </li>
+        <% end %>
+    <% end %>
+</ul>
+
+
+<p>
+    <%= link_to 'Edit Student Profile', edit_student_path %> | 
+<%= link_to 'Back to Students Main', students_path %>
+</p>

@@ -1,0 +1,6 @@
+<h1><%= @duck.name %></h1>
+<h3><%= @duck.description %></h3>
+<h3>Property of <%= @duck.student.name %></h3>
+
+<br><br>
+<p><%= link_to 'Back to Ducks Main', ducks_path %> | <%= link_to 'Edit Duck Profile', edit_duck_path %></p>
